@@ -67,4 +67,9 @@ public class Customer {
 		this.age = age;
 	}
 
+	@Override
+	public String toString() {
+		return id + "," + lastName + "," + firstName + "," + address + "," + city + "," + age;
+	}
+
 }

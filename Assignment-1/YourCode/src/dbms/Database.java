@@ -2,6 +2,8 @@ package dbms;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,11 +18,58 @@ public class Database {
 	private HashMap<String, Balance> balances;
 
 	public Database() {
-		// convert all the csv data into java objects, then organize them into hasmap's
+		// Initialize the hashmap's that will be the in memory rep for the relations
 		this.customers = new HashMap<>();
 		this.accounts = new HashMap<>();
 		this.balances = new HashMap<>();
+		// import all the csv data into java objects that go into the hashmap's
 		importData();
+		// TODO: REMOVE COMMITS FROM HERE LATER
+		commitCustomers();
+		commitAccounts();
+		commitBalances();
+	}
+
+	private void commitCustomers() {
+		File customers = new File("output_customer.csv");
+		try {
+			FileWriter writer = new FileWriter(customers);
+			for (Customer customer : this.customers.values()) {
+				writer.write(customer.toString() + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			System.out.println("Error encountered commiting customer table");
+			e.printStackTrace();
+		}
+	}
+
+	private void commitAccounts() {
+		File accounts = new File("output_account.csv");
+		try {
+			FileWriter writer = new FileWriter(accounts);
+			for (Account account : this.accounts.values()) {
+				writer.write(account.toString() + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			System.out.println("Error encountered commiting customer table");
+			e.printStackTrace();
+		}
+	}
+
+	private void commitBalances() {
+		File balances = new File("output_account-balance.csv");
+		try {
+			FileWriter writer = new FileWriter(balances);
+			for (Balance balance : this.balances.values()) {
+				writer.write(balance.toString() + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			System.out.println("Error encountered commiting customer table");
+			e.printStackTrace();
+		}
 	}
 
 	private void importData() {
@@ -56,7 +105,7 @@ public class Database {
 			}
 			scn.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("cannot find CSV in specified location");
+			System.out.println("cannot find / access CSV in specified location");
 			e.printStackTrace();
 		}
 

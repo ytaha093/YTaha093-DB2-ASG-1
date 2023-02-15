@@ -37,4 +37,9 @@ public class Account {
 		this.savingAccount = savingAccount;
 	}
 
+	@Override
+	public String toString() {
+		return id + "," + checkingAccount + "," + savingAccount;
+	}
+
 }

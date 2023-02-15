@@ -27,4 +27,9 @@ public class Balance {
 		this.balance = balance;
 	}
 
+	@Override
+	public String toString() {
+		return accountNum + "," + balance;
+	}
+
 }
