@@ -1,5 +1,6 @@
 package relations;
 
+/** @author Yaseen Taha */
 public class Log {
 
 	private int logID;
@@ -68,6 +69,10 @@ public class Log {
 
 	public void setStatusIncomplete() {
 		this.status = "incomplete";
+	}
+
+	public void setStatusReverted() {
+		this.status = "reverted";
 	}
 
 	@Override

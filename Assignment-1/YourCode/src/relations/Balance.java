@@ -1,5 +1,6 @@
 package relations;
 
+/** @author Yaseen Taha */
 public class Balance {
 
 	private String accountNum;

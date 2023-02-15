@@ -1,2 +1,4 @@
-1,1,Balance,312345c:786324,,incomplete
-2,1,Balance,312345s:987613,,incomplete
+1,1,Balance,312345c:786324,312345c:686324,complete
+2,1,Balance,312345s:987613,312345s:1087613,complete
+3,2,Balance,312345c:686324,312345c:586324,complete
+4,2,Balance,312345s:1087613,,incomplete

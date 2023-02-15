@@ -1,5 +1,6 @@
 package relations;
 
+/** @author Yaseen Taha */
 public class Customer {
 
 	private int id;
